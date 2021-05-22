@@ -1,0 +1,89 @@
+---
+title: "Super Aprendizagem em R"
+author: "George Marmelstein"
+date: "22/05/2021"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Bases de Aprendizagem
+
+## Livros
+
+<https://jonnyphillips.github.io/Ciencia_de_Dados/>
+
+<https://livro.curso-r.com/>
+
+<https://curso-r.github.io/zen-do-r/index.html>
+
+[Analise de Dados para as Ciencias Sociais: Recursos (jonnyphillips.github.io)](https://jonnyphillips.github.io/Ciencia_de_Dados/recursos.html) - Livros e Cheat Sheets
+
+## Youtube
+
+### Aprendizagem em R
+
+[Didática Tech - YouTube](https://www.youtube.com/channel/UC0BiVs5EYh57gzGVvhddjsA)
+
+[Curso-R - YouTube](https://www.youtube.com/channel/UCTXuqtCYxPVEehq6fJY9GkA)
+
+### Estatística e Análise de Dados em R
+
+[Nazareno Ferreira de Andrade - YouTube](https://www.youtube.com/channel/UCg4jOV2lnxarW3tkmbDL59Q)
+[Fernanda Peres - YouTube](https://www.youtube.com/channel/UCx1vXgGDXc7BH7bI1KC_o7Q)
+[Psicometristas Brasil - YouTube](https://www.youtube.com/channel/UCmQTLhj0Ev41tjClKPJ20Lw)
+
+# Aprendendo a preparar o R
+
+## Princípios do Zen do R
+
+```{r message=TRUE, warning=FALSE, include=FALSE}
+install.packages(c("usethis", "renv", "tidyverse"))
+```
+
+### Desabilitar o `.RData` e o `.Rhistory`
+
+![](https://curso-r.github.io/zen-do-r/static/rdata-rhistory/config.png)
+
+### Criar uma pasta fixa para inserir todos os projetos e documentos R
+
+### ![](https://curso-r.github.io/zen-do-r/static/rproj-dir/wd.png)
+
+OBS: é possível dar o nome que quiser. No meu caso, o nome da pasta é Projetos R. Cada projeto deve ser uma pasta própria (subdiretório).
+
+### Usar o `usethis`para criar um projeto novo com um simples comando
+
+```{r}
+usethis::create_project("~/Documents/projetos R/TSE")
+```
+
+No caso, criei o projeto TSE. O R automaticamente criou uma nova pasta, um novo arquivo de projeto TSE e uma pasta com nome R.
+
+### Abrir um arquivo dentro do projeto
+
+O ideal é sempre trazer o arquivo csv para dentro do projeto. Há duas formas de fazer isso sem alterar o working directory e deixando claro que o arquivo está originalmente fora de qualquer pasta.
+
+```{r}
+# Duas formas de ler a.csv
+
+a <- read.csv("~/Downloads/a.csv")
+
+file.copy("~/Downloads/a.csv", "a.csv")
+a <- read.csv("a.csv")
+```
+
+Na primeira forma, o arquivo ficará fora da pasta do projeto. Na segunda, ficará dentro. (Outra opção é fazer isso usando próprio explorer do Windows).
+
+## Git e Github
+
+Para permitir que os comandos do R acessem a sua conta do GitHub, é essencial criar um *Personal Access Token* (PAT). Tendo logado no GitHub, clique na sua imagem no canto direito superior e siga para **Settings \> Developer settings \> Personal access tokens \> Generate new token**. Nesta página, basta descrever o seu uso para o token e selecionar o primeiro box de todos; por fim, gere e copie o seu token (uma sequência de mais ou menos 40 letras e números).
+
+Clique em **Generate token** no pé da página para confirmar a criação do token. Agora é necessário seguir as instruções descritas no comando. Execute a função `gitcreds::gitcreds_set()` e cole o seu token no console quando o mesmo for requisitado. Assim que isso estiver feito, você não precisará mais se preocupar com nenhum tipo de configuração.
+
+Para ativar o git dentro de um novo projeto:
+
+```{r}
+usethis::use_git()
+```
