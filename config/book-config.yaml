@@ -1,0 +1,91 @@
+# Configuração do Livro - Super Aprendizagem em R
+# Este arquivo define a estrutura do livro e parâmetros do workflow
+
+book:
+  title: "Super Aprendizagem em R"
+  author: "George Marmelstein"
+  version: "1.0.0"
+
+# Estrutura de capítulos
+# Cada capítulo é processado como um módulo independente
+chapters:
+  - id: "01-introducao"
+    title: "Introdução"
+    status: "pending"
+    priority: 1
+
+  - id: "02-preparacao"
+    title: "Aprendendo a Preparar o R"
+    status: "pending"
+    priority: 2
+
+  - id: "03-bases"
+    title: "Bases de Aprendizagem"
+    status: "pending"
+    priority: 3
+
+# Configurações do workflow
+workflow:
+  # Modo de processamento
+  mode: "iterative"  # iterative | batch
+
+  # Context refresh em cada capítulo
+  context_refresh: true
+
+  # Análise de estilo antes de cada capítulo
+  style_analysis: true
+
+  # Validação após geração
+  post_generation_validation: true
+
+# Diretórios
+directories:
+  style: "estilo"
+  content: "conteudo"
+  output: "output/capitulos"
+  final: "output/final"
+  workflows: "workflows"
+  templates: "templates"
+
+# Configurações de estilo
+style:
+  # Peso dos diferentes aspectos na análise de estilo
+  weights:
+    writing_style: 0.4
+    pedagogical_approach: 0.3
+    examples: 0.2
+    metaphors: 0.1
+
+  # Documentos de referência de estilo
+  reference_docs: []
+
+# Configurações de conteúdo
+content:
+  # Prioridades na composição
+  priorities:
+    surveys: 0.4        # Aprofundamento teórico
+    research: 0.3       # Pesquisas profundas
+    drafts: 0.3         # Rascunhos (subsídio, não ponto principal)
+
+  # Mínimo de fontes para cada capítulo
+  min_sources:
+    surveys: 1
+    research: 1
+
+# Validação e qualidade
+validation:
+  # Métricas de qualidade
+  quality_checks:
+    - style_consistency
+    - content_completeness
+    - technical_accuracy
+    - pedagogical_clarity
+
+  # Threshold para aprovação
+  min_quality_score: 0.85
+
+# Output
+output:
+  format: "markdown"
+  include_metadata: true
+  versioning: true

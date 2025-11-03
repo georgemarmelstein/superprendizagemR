@@ -1,7 +1,45 @@
+# R Project
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 .Rdata
 .httr-oauth
+
+# System Files
 .DS_Store
+Thumbs.db
+
+# Output temporário (manter estrutura, ignorar conteúdo)
+output/capitulos/*/
+output/final/*.md
+output/final/*.pdf
+output/final/*.docx
+!output/capitulos/.gitkeep
+!output/final/.gitkeep
+
+# Logs e temporários
+*.log
+*.tmp
+*.swp
+*~
+
+# Documentos de trabalho privados (opcional)
+# Descomente se não quiser versionar seu conteúdo
+# estilo/*
+# conteudo/*
+# !estilo/README.md
+# !conteudo/README.md
+
+# Build artifacts
+build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Backup files
+*.bak
+*.backup
